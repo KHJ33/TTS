@@ -1,0 +1,21 @@
+#container {
+  margin: 0px auto;
+  width: 640px;
+  height: 1020px;
+  background: blue;
+}
+#camera--view {
+  width: 640px;
+  height: 480px;
+  transform: rotateY(180deg); /* 좌우 반전 */
+}
+#camera--sensor {
+  width: 640px;
+  height: 480px;
+  /* transform: rotateY(180deg); 좌우 반전 */
+  background: red;
+}
+#camera--trigger {
+  width: 100px;
+  height: 50px;
+}
