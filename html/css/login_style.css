@@ -7,14 +7,24 @@
 
 body{
     margin: 0;
-    background-color: lightblue;
+    /* background-color: #008CBF; */
+}
+
+.bg{background: #155799;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #155799, #159957);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #155799, #159957); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh; width: 100vw;
+    margin: 0px;
+
 }
 
 .login-form{
     width: 400px; border: 0;
     /* form 모서리 부분을 완만하게 만들어줌  */
     border-radius: 5px; 
-    background-color: #EEEFF1;
+    background-color: #d4d5d6;
     padding: 40px;
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
 }
@@ -30,7 +40,7 @@ body{
 .submit-btn{
     color: white;
     font-size: 20px;
-    background-color: rgb(91, 177, 206);
+    background-color: #2170be;
     margin-bottom: 25px;
     border:none; border-radius: 5px;
     padding: 15px; width: 100%;
@@ -42,7 +52,7 @@ body{
 
 .links a{
     font-size: 18px;
-    color: #9b9b9b;
+    color: #696969;
 }
 
 #aa{
