@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charest="utf-8">
+        <title>메인</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='main_style.css') }}">
+    </head>
+    <body>
+        <div class="saw">
+            <h1>ITT + TTS</h1>
+            <h6>음성 변환 기술을 사용해보세요</h6>
+            {% if g.user %}
+            <h6><u>{{ g.user.nickname }}</u>님 환영합니다.</h6>
+            <h4><a href="#">변환 시작</a></h4>
+            <h4><a href="{{ url_for('auth.logout') }}">로그 아웃</a></h4>
+            {% else %}
+            <h4><a href="{{ url_for('auth.signup') }}">변환 시작</a></h4>
+            {% endif %}
+        </div>
+        <div class="bg"></div>
+
+    </body>
+
+</html>
