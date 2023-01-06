@@ -25,9 +25,18 @@
                 <a href="{{ url_for('auth.login') }}">이미 회원이신가요? <strong>로그인하기</strong></a>
             </div>
         </div>
-        <div>
-            <a href="{{ url_for('main.index') }}"><img src="{{ url_for('static', filename='house.png') }}" alt=""></a>
-        </div>
-        <img id="person" src="{{ url_for('static', filename='person.png') }}" alt="">
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <i><img src="{{ url_for('static', filename='logo2.png') }}"></i>
+            </div>
+            <ul class="navbar_menu">
+                <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="{{ url_for('auth.model') }}">Services</a></li>
+                <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+            </ul>
+        </nav>
+        <div class="bg"></div>
+
     </body>
 </html>
