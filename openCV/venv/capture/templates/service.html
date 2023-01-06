@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Service_Tesseract</title>
+<style>
+</style>
+</head>
+  <body>
+    <h2 align=center>Video Capture</h2>
+
+    <video  id="myVideo" width="400" height="300" style="border: 1px solid #ddd; margin-left: 100px"></video>
+    <canvas id="myCanvas" width="160" height="140" style="border: 1px solid #ddd;"></canvas><br>
+    <input type=button value="Camera On" onclick="{getVideo()}" style="margin-left: 100px">
+    <input type=button value="Get Pic" onclick="{takeSnapshot()}"><br>
+    <text style="margin-left: 100px"> Take snapshot every <input type=number id="myInterval"  value="3000"> milliseconds
+    <input type=button value="Auto" onclick="{takeAuto()}">
+    <script src="{{url_for('static', filename='webcam.js')}}"></script>
+    <script>  
+    // [이미지 저장 함수]
+    function canvasImageSave(){
+      console.log("");
+      console.log("[canvasImageSave] : [start]");
+      console.log("");
+
+      // 캔버스 아이디 지정 실시
+      // <canvas id="myBarHeightChart"></canvas> 
+      var canvasID = document.getElementById("myCanvas");
+
+
+      // a 태그 생성 실시
+      var a = document.createElement("a"); // a 태그 create
+
+
+      // a 태그 href 속성에 캔버스 data url 지정
+      a.href = canvasID.toDataURL();
+
+
+      // a 태그에 download 속성 지정 실시
+      var fileName = "chartImage.png";
+      a.setAttribute("download", fileName); // a 태그에 다운로드 속성 추가
+
+
+      // body 영역에 a 태그 추가 실시
+      document.body.appendChild(a);
+
+
+      // a 태그 강제로 클릭 이벤트 발생 및 다운 로드 수행 실시
+      a.click(); // 클릭 이벤트를 발생시켜 다운로드
+
+
+      // body 영역에서 a 태그 다시 삭제 실시
+      document.body.removeChild(a);
+    };
+    </script>
+  </body>
+</html>

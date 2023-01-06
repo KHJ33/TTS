@@ -10,9 +10,10 @@ body{
     /* background-color: #008CBF; */
 }
 
-.bg{background: #155799;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #155799, #159957);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #155799, #159957); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.bg{
+    background: #004870;
+    background: -webkit-linear-gradient(to top, #4286f4, #004870);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #4286f4, #004870); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh; width: 100vw;
@@ -40,7 +41,7 @@ body{
 .submit-btn{
     color: white;
     font-size: 20px;
-    background-color: #2170be;
+    background-color: #004e92;
     margin-bottom: 25px;
     border:none; border-radius: 5px;
     padding: 15px; width: 100%;
@@ -60,10 +61,37 @@ body{
     text-align: center;
 }
 
-img{
-    width:60px; height:60px;
-    float:right; margin: 30px;
-}
-#person{
-    width:50px; height: 50px; margin-right: 0;
-}
+.navbar {
+    display: flex; position: absolute;
+    width:100vw; align-items: center;
+    background-color: #011B3E;
+  }
+  
+  img{
+    width: auto; height: auto;
+    max-width: 200px; max-height: 200px;
+  }
+  
+  i{
+    padding-left: 50px; padding-right: 900px;
+  }
+  
+  a{
+    text-decoration: none;
+    color : white; font-size: 20px;
+    padding: 20px 60px;
+  }
+  
+  .navbar_menu{
+    list-style: none;
+    display: flex; margin:0; padding-left: 0;
+  }
+  
+  .navbar_menu li{
+    padding-top: 20px; padding-bottom: 20px;
+  }
+  
+  .navbar_menu li a:hover{
+      background-color:#f64f59;
+      color: white;
+  }

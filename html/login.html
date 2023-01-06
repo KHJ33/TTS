@@ -8,19 +8,26 @@
     <body>
         <div class="login-form">
             <h1 id="aa">Login</h1>
-            <form>
+            <form method="post">
                 <input type="'text" name="id" class="text-field" placeholder="아이디">
                 <input type="text" name="password" class="text-field" placeholder="비밀번호">
                 <input type="submit" class="submit-btn" value="로그인">
             </form>
             <div class="links">
-                <a href="sign_up.html">회원이 아니신가요? <strong>회원가입하기</strong></a>
+                <a href="{{ url_for('auth.signup') }}">회원이 아니신가요? <strong>회원가입하기</strong></a>
             </div>
         </div>
-        <div>
-            <a href="main.html"><img src="css/house.png" alt=""></a>
-        </div>
-        <img id="person" src="css/person.png" alt="">
+        <nav class="navbar">
+            <div class="'navbar_logo">
+                <i><img src="{{ url_for('static', filename='logo2.png') }}"></i>
+            </div>
+            <ul class="navbar_menu">
+                <li><a href="main.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="model.html">Services</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
         <div class="bg"></div>
     </body>
 </html>

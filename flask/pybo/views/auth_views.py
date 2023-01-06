@@ -6,7 +6,7 @@ from pybo import db
 from pybo.forms import UserCreateForm, UserLoginForm
 from pybo.models import User
 
-bp = Blueprint('auth',__name__, url_prefix='/auth')
+bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 @bp.route('/signup/', methods=('GET', 'POST'))
 def signup():
@@ -42,6 +42,9 @@ def login():
         flash(error)
     return render_template('auth/login.html', form=form)
 
+@bp.route('/model/', methods=('GET', 'POST'))
+def model():
+    return render_template('auth/model.html')
 @bp.before_app_request
 def load_logged_in_user():
     user_id = session.get('user_id')
