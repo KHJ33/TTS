@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>Service_Tesseract</title>
+<style>
+</style>
+</head>
+  <body>
+    <h2 align=center>Video Capture</h2>
+
+    <video  id="myVideo" width="400" height="300" style="border: 1px solid #ddd; margin-left: 100px"></video>
+    <canvas id="myCanvas" width="160" height="140" style="border: 1px solid #ddd;"></canvas><br>
+    <input type=button value="Camera On" onclick="{getVideo()}" style="margin-left: 100px">
+    <input type=button value="Get Pic" onclick="{takeSnapshot()}"><br>
+    <text style="margin-left: 100px"> Take snapshot every <input type=number id="myInterval"  value="3000"> milliseconds
+    <input type=button value="Auto" onclick="{takeAuto()}">
+    <img id="myImage">
+    <p>마우스 드래그로 그림을 그려보세요.
+      <a href="" download="my_painting.png">다운로드</a>
+    </p>
+    <script src="{{url_for('static', filename='webcam.js')}}"></script>
+  </body>
+</html>
