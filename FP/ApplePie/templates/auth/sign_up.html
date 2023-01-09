@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>회원가입</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='./_css/signup_style.css') }}">
+    </head>
+    <body>
+
+        <!-- 네비게이터 바 -->
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <i><img src="{{ url_for('static', filename='./_images/logo2.png') }}"></i>
+            </div>
+
+            <ul class="navbar_menu">
+                <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="{{ url_for('auth.model') }}">Services</a></li>
+                <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+            </ul>
+            
+        </nav>
+        
+        <div class="bg"></div>
+
+        <div class="signup-form">
+            
+            <h1 id="aa">Sign Up</h1>
+            
+            <form method="post">
+                {{ form.csrf_token }}
+                {% include "form_errors.html" %}
+                <input type="text" name="nickname" class="text-field" placeholder="닉네임"
+                       value="{{ form.nickname.data or '' }}">
+                <input type="text" name="username" class="text-field" placeholder="아이디"
+                       value="{{ form.username.data or '' }}">
+                <input type="password" name="password1" class="text-field" placeholder="비밀번호"
+                       value="{{ form.password1.data or '' }}">
+                <input type="password" name="password2" class="text-field" placeholder="비밀번호 확인"
+                       value="{{ form.password2.data or '' }}">
+
+                <input type="submit" class="submit-btn" value="회원가입">
+            </form>
+
+            <!-- auth_views.py login() 함수 실행 -->
+            <div class="links">
+                <a href="{{ url_for('auth.login') }}">이미 회원이신가요? <strong>로그인하기</strong></a>
+            </div>
+
+        </div>
+
+    </body>
+</html>

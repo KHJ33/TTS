@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>서비스 화면</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='model_style.css') }}">
+    </head>
+    <body>
+        <div class="webcam-form"></div>
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <i><img src="css/logo2.png"></i>
+            </div>
+            <ul class="navbar_menu">
+                <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="{{ url_for('auth.model') }}">Services</a></li>
+                <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+            </ul>
+        </nav>
+        <div class="bg"></div>
+
+    </body>
+</html>
