@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body{
+  margin: 0px;
+}
+
+.bg{
+  background: #ecc4ff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh; width: 100vw; margin: 0px;
+}
+
+.webcam-form{
+    width: 100px; height: 200px; border: 0;
+    border-radius: 5px; 
+    background-color: #3b3b3b;
+    padding: 40px;
+    position: absolute; top: 300px; left: 300px; 
+}
+
+.navbar {
+  display: flex; position: absolute;
+  width:100vw; align-items: center;
+  background-color: #011B3E;
+}
+
+img{
+  width: auto; height: auto;
+  max-width: 200px; max-height: 200px;
+}
+
+i{
+  padding-left: 50px; padding-right: 900px;
+}
+
+a{
+  text-decoration: none;
+  color : white; font-size: 20px;
+  padding: 20px 60px;
+}
+
+.navbar_menu{
+  list-style: none;
+  display: flex; margin:0; padding-left: 0;
+}
+
+.navbar_menu li{
+  padding-top: 20px; padding-bottom: 20px;
+}
+
+.navbar_menu li a:hover{
+	background-color:#f64f59;
+	color: white;
+}
