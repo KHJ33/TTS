@@ -10,3 +10,6 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 # 암호화 처리 옵션
 SECRET_KEY = "dev"
+
+TESSERACT_PATH = './ApplePie/package/Tesseract-OCR/tesseract.exe'
+IMAGE_PATH = 'ApplePie/saveImg/'
