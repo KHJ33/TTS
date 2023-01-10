@@ -19,12 +19,15 @@ def create_app():
     from . import models
 
     # 블루프린트
-    from .views import main_views, auth_views
+    from .views import main_views, auth_views, services_views
     
     # Main Page
     app.register_blueprint(main_views.bp)
 
     # 회원가입 인증
     app.register_blueprint(auth_views.bp)
+
+    # 모델 도입
+    app.register_blueprint(services_views.bp)
 
     return app
