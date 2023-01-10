@@ -22,7 +22,7 @@
             <!-- g.user 확인이 되면 -->
             <!-- auth_views.py model(), logout() 함수 사용 -->
             {% if g.user %}
-                <a href="{{ url_for('auth.model') }}">Services</a>
+                <a href="{{ url_for('model.service') }}">Services</a>
                 <a href="{{ url_for('auth.logout') }}">Logout</a>
                 <a>{{ g.user.nickname }} 님 환영합니다.</a>
 
