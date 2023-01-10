@@ -76,10 +76,6 @@ def login():
     # login 페이지 호출
     return render_template('auth/login.html', form=form)
 
-@bp.route('/model/', methods=('GET', 'POST'))
-def model():
-    return render_template('auth/model.html')
-
 @bp.before_app_request
 def load_logged_in_user():
     user_id = session.get('user_id')
