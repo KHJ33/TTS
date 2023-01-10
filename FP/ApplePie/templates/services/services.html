@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>서비스 화면</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='./_css/model_style.css') }}">
+    </head>
+    <body>
+        <div class="webcam-form"></div>
+        
+
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <i><img src="{{ url_for('static', filename='./_images/logo2.png') }}"></i>
+            </div>
+            <ul class="navbar_menu">
+                <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="{{ url_for('model.service') }}">Services</a></li>
+                <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+
+        <h2 align=center>Video Capture</h2>
+        <video  id="myVideo" width="400" height="300" style="border: 1px solid #ddd; margin-left: 100px"></video>
+        <canvas id="myCanvas" width="160" height="140" style="border: 1px solid #ddd;"></canvas><br>
+        <input type=button value="Camera On" onclick="{getVideo()}" style="margin-left: 100px">
+        <input type=button value="Get Pic" onclick="{takeSnapshot()}"><br>
+        
+        <form method="POST">
+            <input type="submit" name='btn' value="saveImg" onclick="{saveImg()}">
+        </form>
+
+        <!-- <img id="myImage"> -->
+
+        <script src="{{url_for('static', filename='./_js/webcam.js')}}"></script>
+        
+        <!-- <div class="bg"></div> -->
+    
+        {% if text %}
+            <form method="post">
+                텍스트 영역<br/>
+                <textarea name = 'textarea' rows= "7" cols = "40" wrap = "virtual">{{ text }}</textarea>
+                <input type='submit' name='btn' value = 'ToTTS'>
+            </form>
+        {% endif %}
+
+
+    </body>
+</html>
