@@ -33,9 +33,9 @@ class G2p(object):
         self.idioms_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "idioms.txt")
 
     def get_mecab(self):
-        if os.name == 'nt':
+        if os.name != 'nt':
             from konlpy.tag import Mecab
-            mecab_ko_dic_path = os.environ['MECAB_KO_DIC_PATH'] if 'MECAB_KO_DIC_PATH' in os.environ else r"C:\mecab\mecab-ko-dic"
+            mecab_ko_dic_path = os.environ['MECAB_KO_DIC_PATH'] if 'MECAB_KO_DIC_PATH' in os.environ else r"C:\ProgramData\Anaconda3\envs\FP\Lib\site-packages\mecab"
             return Mecab(dicpath=mecab_ko_dic_path)
         else:
             import mecab

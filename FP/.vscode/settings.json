@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./ApplePie/package/g2pK/g2pk",
+        "./ApplePie/package/TTS"
+    ]
+}
