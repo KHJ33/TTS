@@ -46,6 +46,14 @@
             </form>
         {% endif %}
 
+        {% if voice %}
+            <p>{{text}} </p>
+            <audio autoplay controls>
+                <source src="{{ url_for('static', filename='../save/Voice/test.mp3')}}" type="audio/mp3">
+                
+            </audio>
+        {% endif %}
+
 
     </body>
 </html>

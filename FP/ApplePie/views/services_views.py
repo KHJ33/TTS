@@ -24,7 +24,12 @@ def service():
 
         text = request.form['textarea']
 
-        return render_template('services/services.html', text = text)
+        from ..AI_Model import tts
+
+        TT = tts.ToTTS()
+        TT.text_to_Voice(text)
+
+        return render_template('services/services.html', text = text, voice = True)
     
     
     return render_template('services/services.html')

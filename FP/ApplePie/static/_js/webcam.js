@@ -27,15 +27,15 @@ function takeSnapshot() {
 
 // canvas 이미지
 function saveImg() {
-    // var canvas = document.getElementById('myCanvas');
-    // const image = canvas.toDataURL("image/png", 1.0);
+    var canvas = document.getElementById('myCanvas');
+    const image = canvas.toDataURL("image/png", 1.0);
    
-    // const link = document.createElement("a");
+    const link = document.createElement("a");
 
-    // // link.src = "./images";
-    // link.href = image;
-    // link.download = "text_img";
-    // link.click();
+    // link.src = "./images";
+    link.href = image;
+    link.download = "text_img";
+    link.click();
 
     // 클릭시 saveImg 폴더 내로 저장 -- 미구현
 
