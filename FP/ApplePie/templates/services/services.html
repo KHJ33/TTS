@@ -4,56 +4,66 @@
     <head>
         <meta charset="utf-8">
         <title>서비스 화면</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='./_css/model_style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='./_css/service_style.css') }}">
+        <!-- <link rel="stylesheet" href="{{ url_for('static', filename='./_css/service_style.css') }}"> -->
+
     </head>
     <body>
-        <div class="webcam-form"></div>
-        
-
         <nav class="navbar">
-            <div class="navbar_logo">
-                <i><img src="{{ url_for('static', filename='./_images/logo2.png') }}"></i>
+            <div class="navbar__logo">
+                <a  href="{{ url_for('main.index') }}"> 
+                    <i><img src="{{ url_for('static', filename='./_images/logo2.png') }}"></i>
+                </a>
             </div>
-            <ul class="navbar_menu">
+            <ul class="navbar__menu">
                 <li><a href="{{ url_for('main.index') }}">Home</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="{{ url_for('about.index') }}">About</a></li>
                 <li><a href="{{ url_for('model.service') }}">Services</a></li>
                 <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
             </ul>
         </nav>
-
-        <h2 align=center>Video Capture</h2>
-        <video  id="myVideo" width="400" height="300" style="border: 1px solid #ddd; margin-left: 100px"></video>
-        <canvas id="myCanvas" width="160" height="140" style="border: 1px solid #ddd;"></canvas><br>
-        <input type=button value="Camera On" onclick="{getVideo()}" style="margin-left: 100px">
-        <input type=button value="Get Pic" onclick="{takeSnapshot()}"><br>
         
-        <form method="POST">
-            <input type="submit" name='btn' value="saveImg" onclick="{saveImg()}">
-        </form>
+        <nav class = 'mothergrid'>
+            <div class= 'grid1'>
+                <video id="myVideo"></video>
+                <center>
+                    <table>
+                        <tr>
+                            <th><input type=button value="Camera On" onclick="{getVideo()}" ></th>
+                            <th></th><th></th><th></th><th></th><th></th><th></th>
+                            <th><input type=button value="Capture" onclick="{takeSnapshot()}"></th>
+                        </tr>
+                    </table>
+                </center>
+            </div>
 
-        <!-- <img id="myImage"> -->
+            <div class= 'grid2'>
+                <canvas id="myCanvas"></canvas>
+                <form method="POST">
+                <input type="submit" name='btn' value="Text Extraction" onclick="{saveImg()}">
+                </form>      
+            </div>
 
-        <script src="{{url_for('static', filename='./_js/webcam.js')}}"></script>
+            <div class = 'grid3'>
+                    <!-- <img id="myImage"> -->
+                    <script src="{{url_for('static', filename='./_js/webcam.js')}}"></script>          
+                    <!-- <div class="bg"></div> -->
+                        <center>
+                            {% if text %}
+                                <form method="post">
+                                    <textarea name = 'textarea' wrap = "virtual">{{ text }}</textarea>
+                                    <input type='submit' name='btn' value = 'TTS Start'>
+                                </form>
+                            {% endif %}
+                        </center>
+                    {% if voice %}
+                    <audio autoplay controls>
+                        <source src="{{ url_for('static', filename='test_Voice.mp3')}}" type="audio/mp3">
+                        
+                    </audio>
+                {% endif %}
+            </div>
+        </nav>
         
-        <!-- <div class="bg"></div> -->
-    
-        {% if text %}
-            <form method="post">
-                텍스트 영역<br/>
-                <textarea name = 'textarea' rows= "7" cols = "40" wrap = "virtual">{{ text }}</textarea>
-                <input type='submit' name='btn' value = 'ToTTS'>
-            </form>
-        {% endif %}
-
-        {% if voice %}
-            <p>{{text}} </p>
-            <audio autoplay controls>
-                <source src="{{ url_for('static', filename='test.mp3')}}" type="audio/mp3">
-                
-            </audio>
-        {% endif %}
-
-
     </body>
 </html>

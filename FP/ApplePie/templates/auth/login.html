@@ -7,7 +7,7 @@
     </head>
     <body>
         <!-- 네비게이션 -->
-        <nav class="navbar">
+        <!-- <nav class="navbar">
             <div class="navbar_logo">
                 <i><img src="{{ url_for('static', filename='./_images/logo2.png') }}"></i>
             </div>
@@ -17,7 +17,28 @@
                 <li><a href="{{ url_for('auth.login') }}">Services</a></li>
                 <li><a href="{{ url_for('auth.login') }}">Login</a></li>
             </ul>
+        </nav> -->
+
+<!-- khj -->
+        <nav class="navbar">
+
+            <div class="navbar__logo">
+                <a  href="{{ url_for('main.index') }}"> 
+                    <i><img src="{{ url_for('static', filename='./_images/logo2.png') }}"></i>
+                </a>
+            
+            </div>
+
+            <ul class="navbar__menu">
+                <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                <li><a href="{{ url_for('about.index') }}">About</a></li>
+                <li><a href="{{ url_for('auth.login') }}">Services</a></li>
+                <li><a href="{{ url_for('auth.signup') }}">Sign Up</a></li>
+            </ul>
+
+            
         </nav>
+<!--  -->
         
         <div class="login-form">
             <h1 id="aa">Login</h1>

@@ -22,4 +22,5 @@ GLOW_TTS_CONFIG_PATH = './ApplePie/AI_Model/glow_tts/config.json'
 HIFI_GAN_CHECKPOINT_PATH = './ApplePie/AI_Model/hifi_gan/checkpoint_300000.pth.tar'
 HIFI_GAN_CONFIG_PATH = './ApplePie/AI_Model/hifi_gan/config.json'
 
-SAVE_VOICE_PATH = './ApplePie/saveVoice/'
+# SAVE_VOICE_PATH = './ApplePie/saveVoice/'
+SAVE_VOICE_PATH = './ApplePie/static/'

@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body{
+  margin: 0px;
+}
+
+.bg{
+  background: #ecc4ff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh; width: 100vw; margin: 0px;
+}
+
+.mothergrid {
+  width: 100%; height: 100%;
+  margin-top: 0px;
+  position: absolute;
+  display: grid;
+}
+
+.grid1 {
+  width: 30%; height: 100%; 
+  background: rgb(184, 184, 230);
+  position: absolute;
+  z-index: 2;
+}
+
+.grid1 input {
+  border: 0;
+  outline: none;
+  font-size: 20px;
+  background: black;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+#myVideo {
+  width:400px; height:400px;
+  border: 2px solid rgb(0, 0, 0);
+  background: white;
+  z-index: 1;
+  display: block;
+  margin : 20px auto;
+}
+
+.grid2 {
+  width: 30%; height: 100%; 
+  background: rgb(228, 216, 176);
+  position: absolute;
+  left : 30%;
+  z-index: 2;
+
+}
+
+.grid2 input {
+  border: 0;
+  outline: none;
+  font-size: 20px;
+  background: black;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 10px;
+  display: block;
+  margin : 20px auto;
+
+}
+
+#myCanvas {
+  width:400px; height:400px;
+  border: 2px solid rgb(0, 0, 0);
+  background: white;
+  display: block;
+  margin : 20px auto;
+}
+
+.grid3 {
+  width: 40%; height: 100%; 
+  background: rgb(176, 228, 191);
+  position: absolute;
+  left : 60%;
+  z-index: 2;
+}
+
+.grid3 textarea{
+  height: 150px; width: 450px;
+  border: 2px solid rgb(0, 0, 0);
+  background: rgb(255, 255, 255);
+  display: block;
+  margin : 40px auto;
+}
+
+.grid3 input {
+  border: 0;
+  outline: none;
+  font-size: 20px;
+  background: black;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 10px;
+  display: block;
+  margin : 20px auto;
+}
+
+.grid3 audio{
+  display: block;
+  margin : 50px auto;
+}
+
+img{
+  width: auto; height: auto;
+  max-width: 200px; max-height: 200px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #011B3E;
+  padding: 8px 12px;
+}
+.navbar__menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding-left: 0;
+}
+
+/* .navbar i{
+  padding-left: 50px; padding-right: 900px;
+} */
+
+.navbar__menu a {
+  text-decoration: none;
+  color : white; font-size: 20px;
+  padding: 20px 60px;
+}
+.navbar__menu li {
+  /* text-decoration: none; */
+  /* color : white; font-size: 20px; */
+  /* padding: 20px 60px; */
+  padding: 8px 30px;
+}
+
+
+
+.navbar__menu li:hover {
+  background-color: #f64f59;
+  border-radius: 3px;
+}
+
+/* .navbar__menu a{
+  text-decoration: none;
+  color : white; font-size: 20px;
+  padding: 20px 60px;
+  } */
+
+@media screen and (max-width: 700px) {
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 0;
+    }
+  
+    .navbar__menu {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    
+    .navbar__menu li {
+      text-decoration: none;
+      width: 100%;
+      text-align: center;
+    }
+
+    .navbar__icons {
+      display: none;
+      justify-content: center;
+      width: 100%;
+    }
+}

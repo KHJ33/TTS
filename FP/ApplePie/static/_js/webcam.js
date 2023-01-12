@@ -34,7 +34,7 @@ function saveImg() {
 
     // link.src = "./images";
     link.href = image;
-    link.download = "text_img";
+    link.download = "test_IMG";
     link.click();
 
     // 클릭시 saveImg 폴더 내로 저장 -- 미구현

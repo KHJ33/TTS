@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- utf-8 인코딩 -->
+    <meta charset="utf-8">
+    <!-- 페이지 이름 -->
+    <title>ABOUT</title>
+    <!-- css 연결 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='./_css/about_style.css') }}">
+  </head>
+
+  <body>
+    <!-- 전체 div -->
+    <div class="wrap">
+      <!-- 상단 부분 영역 -->
+      <div class="intro_bg">
+        <div class="navbar">
+          <!-- 좌측 상단 로고 -->
+          <div class="navbar_logo">
+            <a href="{{ url_for('main.index') }}">
+              <img src="{{ url_for('static', filename='./_images/logo2.png') }}">
+            </a>
+          </div>
+          <!-- 우측 상단 메뉴 -->
+          <ul class="navbar_menu">
+            <li><a href="{{ url_for('main.index') }}">Home</a></li>
+            <li><a href="{{ url_for('about.index') }}">About</a></li>
+            {% if g.user %}
+            <li><a href="{{ url_for('model.service') }}">Services</a></li>
+            <li>
+              <div>
+                <div class="nick"><strong class="nickname">{{ g.user.nickname }}</strong> 님</div>
+                <div class="logout"><a href="{{ url_for('auth.logout') }}">Logout</a></div>
+              </div>
+            </li>
+            {% else %}
+            <li><a href="{{ url_for('auth.login') }}">Services</a></li>
+            <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+            {% endif %}
+          </ul>
+        </div>
+        <div class="title">
+          <h1>ABOUT</h1>
+          <br>
+          <h2>Glow-tts 와 hifi-gan을 이용한 tts 모델 구현</h2>
+        </div>
+
+      </div>
+      <!-- 상단 부분 영역 end-->
+      
+      <ul class="amount">
+        <li>
+            <div>
+              <div class="contents1_bold">Project Manager</div>
+              <div class="contents2">김현정</div>
+              <div class="hidden_contents">
+                <ul>
+                  <li>프로젝트 주제 선정</li>
+                  <li>UI/UX 기획</li>
+                  <li>main, login, signup 페이지 구현</li>
+                  <li class="common">공통</li>
+                  <li>glow-tts 논문 리뷰</li>
+                  <li>hifi-gan 논문 리뷰</li>
+                </ul>
+              </div>
+            </div>
+            
+        </li>
+        <li>
+            <div>
+                <div class="contents1_bold">Developer</div>
+                <div class="contents2">김현조</div>
+                <div class="hidden_contents">
+                  <ul>
+                    <li>945개의 음성 데이터 생성</li>
+                    <li>glow-tts, hifi-gan 모델 학습</li>
+                    <li>가상환경 구축</li>
+                    <li class="common">공통</li>
+                    <li>glow-tts 논문 리뷰</li>
+                    <li>hifi-gan 논문 리뷰</li>
+                  </ul>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div>
+                <div class="contents1_bold">Developer</div>
+                <div class="contents2">김웅재</div>
+                <div class="hidden_contents">
+                  <ul>
+                    <li>tesseract 모델 구축 image -> text </li>
+                    <li>service 페이지 구현</li>
+                    <li>파이프라인 구축</li>
+                    <li class="common">공통</li>
+                    <li>glow-tts 논문 리뷰</li>
+                    <li>hifi-gan 논문 리뷰</li>
+                  </ul>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div>
+                <div class="contents1_bold">Developer</div>
+                <div class="contents2">김민혁</div>
+                <div class="hidden_contents">
+                  <ul>
+                    <li>flask 서버</li>
+                    <li>flask DB</li>
+                    <li>About 페이지 구현</li>
+                    <li class="common">공통</li>
+                    <li>glow-tts 논문 리뷰</li>
+                    <li>hifi-gan 논문 리뷰</li>
+                  </ul>
+                </div>
+            </div>
+        </li>
+      </ul>
+      <div class="main_text0">
+        <ul class="icons">
+          <li>
+              <div class="icons_img">
+                  <img src="{{ url_for('static', filename='./_images/glow.png') }}">
+              </div>
+              <div class="contents1_bold">Glow-tts</div>
+              <div class="contents3">Text to Melspectrogram</div>
+          </li>
+          <li>
+              <div class="icons_img">
+                  <img src="{{ url_for('static', filename='./_images/hifi.png') }}">
+              </div>
+              <div class="contents1_bold">Hifi-gan</div>
+              <div class="contents3">Melspectrogram to Voice</div>
+          </li>
+          <li>
+            <div class="icons_img">
+              <img src="{{ url_for('static', filename='./_images/html.png') }}">
+              <img src="{{ url_for('static', filename='./_images/css3.png') }}">
+              <img src="{{ url_for('static', filename='./_images/js.png') }}">
+              <img src="{{ url_for('static', filename='./_images/flask.png') }}">
+              <img src="{{ url_for('static', filename='./_images/python.jpeg') }}">
+              <img src="{{ url_for('static', filename='./_images/anaconda.png') }}">
+              <img src="{{ url_for('static', filename='./_images/vscode.jpeg') }}">
+              <img src="{{ url_for('static', filename='./_images/sqlA.png') }}">
+
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='./_js/about.js')}}"></script>
+  </body>
+</html>

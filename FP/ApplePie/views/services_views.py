@@ -14,16 +14,18 @@ bp = Blueprint('model', __name__, url_prefix='/model')
 
 @bp.route('/service/', methods=('GET', 'POST'))
 def service():
-    if request.method == 'POST' and request.form['btn']== 'saveImg':
+    if request.method == 'POST' and request.form['btn']== 'Text Extraction':
         from ..AI_Model import tesseract
 
         while True :
-            if os.path.isfile(config.IMAGE_PATH+'test.PNG'):
+            if os.path.isfile(config.IMAGE_PATH+'test_IMG.PNG'):
                 break
             time.sleep(0.1)
 
-        ocr = tesseract.OCR('test.PNG')
+        ocr = tesseract.OCR('test_IMG.PNG')
         text = ocr.ImgToText()
+
+        print('aaaaa')
 
         if not text :
             text = '인식된 문자가 없습니다.'
@@ -32,7 +34,7 @@ def service():
 
         return render_template('services/services.html', text = text)
 
-    elif request.method == 'POST' and request.form['btn']== 'ToTTS' :
+    elif request.method == 'POST' and request.form['btn']== 'TTS Start' :
 
         text = request.form['textarea']
 

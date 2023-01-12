@@ -4,6 +4,9 @@
         <meta charest="utf-8" name="viewport" content="width=device-width, initial-scale=1">
         <title>메인</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='./_css/main_style.css') }}">
+<!-- khj -->
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+<!--  -->
     </head>
 
     <body>
@@ -16,8 +19,10 @@
             <!-- main_views.py index() 함수 사용 -->
             <!-- Home 버튼 구현 -->
             <a href="{{ url_for('main.index') }}">Home</a>
-    <!-- 미구현 -->
-            <a href="#">About</a>
+
+<!-- 미구현 -->
+
+            <a href="{{ url_for('about.index') }}">About</a>
 
             <!-- g.user 확인이 되면 -->
             <!-- auth_views.py model(), logout() 함수 사용 -->
@@ -44,6 +49,7 @@
         </div>
 
         <!-- background -->
+        <!-- <img src = "{{url_for('static', filename='./_images/ai3.jpg')}}"> -->
         <div class="bg"></div>
 
         <script src="{{url_for('static', filename='./_js/navigation.js')}}"></script>

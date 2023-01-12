@@ -61,37 +61,85 @@ body{
     text-align: center;
 }
 
-.navbar {
-    display: flex; position: absolute;
-    width:100vw; align-items: center;
-    background-color: #011B3E;
-  }
-  
-  img{
+img{
     width: auto; height: auto;
     max-width: 200px; max-height: 200px;
   }
-  
-  i{
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #011B3E;
+    padding: 8px 12px;
+}
+.navbar__menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding-left: 0;
+}
+
+/* .navbar i{
     padding-left: 50px; padding-right: 900px;
-  }
-  
-  a{
+} */
+
+.navbar__menu a {
     text-decoration: none;
     color : white; font-size: 20px;
     padding: 20px 60px;
+}
+.navbar__menu li {
+    /* text-decoration: none; */
+    /* color : white; font-size: 20px; */
+    /* padding: 20px 60px; */
+    padding: 8px 30px;
   }
-  
-  .navbar_menu{
-    list-style: none;
-    display: flex; margin:0; padding-left: 0;
+
+
+
+.navbar__menu li:hover {
+    background-color: #f64f59;
+    border-radius: 3px;
   }
-  
-  .navbar_menu li{
-    padding-top: 20px; padding-bottom: 20px;
-  }
-  
-  .navbar_menu li a:hover{
-      background-color:#f64f59;
-      color: white;
+
+/* .navbar__menu a{
+    text-decoration: none;
+    color : white; font-size: 20px;
+    padding: 20px 60px;
+    } */
+
+@media screen and (max-width: 700px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0;
+      }
+    
+      .navbar__menu {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+      
+      .navbar__menu li {
+        text-decoration: none;
+        width: 100%;
+        text-align: center;
+      }
+
+      .navbar__icons {
+        display: none;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .signup-form{
+        width: 450px; border: 0;
+        /* form 모서리 부분을 완만하게 만들어줌  */
+        border-radius: 5px; 
+        background-color: #d4d5d6;
+        padding: 40px;
+        position: absolute; top: 59%; left: 50%; transform: translate(-50%, -50%); 
+    }
   }
