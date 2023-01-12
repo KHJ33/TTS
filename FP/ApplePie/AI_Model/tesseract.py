@@ -12,7 +12,9 @@ class OCR() :
         # pytesseract.pytesseract.tesseract_cmd = TESSERACT_PATH
         
         # 운영체제에 따라 다르게 설정
-        # pytesseract.pytesseract.tesseract_cmd = config.TESSERACT_PATH
+        if os.name == 'nt':
+            pytesseract.pytesseract.tesseract_cmd = config.TESSERACT_PATH
+            
         # self.path = IMAGE_PATH
         self.path = config.IMAGE_PATH
         self.file_name = file_name
