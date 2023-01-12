@@ -1,28 +1,27 @@
-import os
-import sys
+import os, sys, g2pk , re, IPython, librosa, os, glob
+
 from pathlib import Path
-import g2pk
-g2p = g2pk.G2p()
-import re
-import sys
 from unicodedata import normalize
-import IPython
 
 from TTS.utils.synthesizer import Synthesizer
-import librosa
 import soundfile as sf
 
-import os
-import glob
+# 경로 지정 
+import config 
+
+# print('tts 실행')
 
 class ToTTS():  
     def __init__(self):
+
+        self.g2p = g2pk.G2p()
+
         self.synthesizer = Synthesizer(
-            "./ApplePie/AI_Model/glow_tts/checkpoint_39000.pth.tar",
-            "./ApplePie/AI_Model/glow_tts/config.json",
+            config.GLOW_TTS_CHECKPOINT_PATH,
+            config.GLOW_TTS_CONFIG_PATH,
             None,
-            "./ApplePie/AI_Model/hifi_gan/checkpoint_300000.pth.tar",
-            "./ApplePie/AI_Model/hifi_gan/config.json",
+            config.HIFI_GAN_CHECKPOINT_PATH,
+            config.HIFI_GAN_CONFIG_PATH,
             None,
             None,
             False,
@@ -38,9 +37,9 @@ class ToTTS():
 
         text = self.jamo_text(text)
 
-        text = g2p.idioms(text)
-        text = g2pk.english.convert_eng(text, g2p.cmu)
-        text = g2pk.utils.annotate(text, g2p.mecab)
+        text = self.g2p.idioms(text)
+        text = g2pk.english.convert_eng(text, self.g2p.cmu)
+        text = g2pk.utils.annotate(text, self.g2p.mecab)
         text = g2pk.numerals.convert_num(text)
         text = re.sub("/[PJEB]", "", text)
 
@@ -190,26 +189,31 @@ class ToTTS():
         wavs = self.synthesizer.tts(text, None, None)
         return wavs
 
+    def text_to_Voice(self, input_text) :
+
+        for text in self.normalize_multiline_text(input_text):
+            wav = self.synthesizer.tts(text, None, None)
+            
+            src_audio_path = text + ".wav"
+            sf.write(f'{config.SAVE_VOICE_PATH}{text}.wav', wav, 22050, 'PCM_24')
+
+
+        files = glob.glob(f'{config.SAVE_VOICE_PATH}*.wav')
+
+        for name in files :
+            if not os.path.isdir(name):
+                src = os.path.splitext(name)
+                os.rename(name, src[0]+'.mp3')
+
+
+
+    
+
 if __name__ == '__main__':
     
     tts = ToTTS()
     texts = """
-    냉동삼겹살 먹고싶다
+    삼겹살 먹고 싶다
     """
-    for text in tts.normalize_multiline_text(texts):
-        wav = tts.synthesizer.tts(text, None, None)
-        IPython.display.display(IPython.display.Audio(wav, rate=22050))  
-        
-    sample_rate = 44100
-    src_audio_path = "test.wav"
-    trg_audio_path = "processed_test.wav"
-    mono = True
 
-    sf.write('./ApplePie/saveVoice/test.wav', wav, 22050, 'PCM_24')
-    
-    files = glob.glob('./ApplePie/saveVoice/*.wav')
-
-    for name in files :
-        if not os.path.isdir(name):
-            src = os.path.splitext(name)
-            os.rename(name, src[0]+'.mp3')
+    tts.text_to_Voice(texts)
