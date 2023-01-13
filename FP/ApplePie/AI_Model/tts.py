@@ -192,11 +192,32 @@ class ToTTS():
     def text_to_Voice(self, input_text) :
 
         input_text = input_text.replace('\n', ' ')
+        input_text += '\n'
+
+        # print(f'{config.SAVE_VOICE_PATH}test_Voice.wav')
+
+        # for text in self.normalize_multiline_text(input_text):
+        #     wav = self.synthesizer.tts(text, None, None)
+
+        #     print('bbbbb')
+            
+        #     # src_audio_path = text + ".wav"
+        #     sf.write(f'{config.SAVE_VOICE_PATH}test_Voice.wav', wav, 22050, 'PCM_24')
+
+        #     # print(f'{config.SAVE_VOICE_PATH}test_Voice.wav')
+
+
+        # files = glob.glob(f'{config.SAVE_VOICE_PATH}*.wav')
+
+        # for name in files :
+        #     if not os.path.isdir(name):
+        #         src = os.path.splitext(name)
+        #         os.rename(name, src[0]+'.mp3')
 
         for text in self.normalize_multiline_text(input_text):
             wav = self.synthesizer.tts(text, None, None)
             
-            # src_audio_path = text + ".wav"
+            src_audio_path = text + ".wav"
             sf.write(f'{config.SAVE_VOICE_PATH}test_Voice.wav', wav, 22050, 'PCM_24')
 
 

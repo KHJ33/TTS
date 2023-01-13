@@ -27,12 +27,8 @@
             <li><a href="{{ url_for('about.index') }}">About</a></li>
             {% if g.user %}
             <li><a href="{{ url_for('model.service') }}">Services</a></li>
-            <li>
-              <div>
-                <div class="nick"><strong class="nickname">{{ g.user.nickname }}</strong> 님</div>
-                <div class="logout"><a href="{{ url_for('auth.logout') }}">Logout</a></div>
-              </div>
-            </li>
+            <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+            
             {% else %}
             <li><a href="{{ url_for('auth.login') }}">Services</a></li>
             <li><a href="{{ url_for('auth.login') }}">Login</a></li>
@@ -40,11 +36,14 @@
           </ul>
         </div>
         <div class="title">
-          <h1>ABOUT</h1>
-          <br>
-          <h2>Glow-tts 와 hifi-gan을 이용한 tts 모델 구현</h2>
+          <div class="title_contents">
+            <h1>ABOUT</h1>
+            <br>
+            <h2>저희는 시각 장애인을 위해 이미지로부터 텍스트를 추출받아 </h2><br>
+            <h2>음성을 생성해주는 서비스 구현을 목표로 합니다.</h2>
+          </div>
         </div>
-
+        
       </div>
       <!-- 상단 부분 영역 end-->
       
@@ -68,7 +67,7 @@
         </li>
         <li>
             <div>
-                <div class="contents1_bold">Developer</div>
+                <div class="contents1_bold">Project Leader</div>
                 <div class="contents2">김현조</div>
                 <div class="hidden_contents">
                   <ul>
@@ -84,11 +83,11 @@
         </li>
         <li>
             <div>
-                <div class="contents1_bold">Developer</div>
+                <div class="contents1_bold">Aplication Architect</div>
                 <div class="contents2">김웅재</div>
                 <div class="hidden_contents">
                   <ul>
-                    <li>tesseract 모델 구축 image -> text </li>
+                    <li>tesseract 모델 구축 Image To Text </li>
                     <li>service 페이지 구현</li>
                     <li>파이프라인 구축</li>
                     <li class="common">공통</li>
@@ -100,7 +99,7 @@
         </li>
         <li>
             <div>
-                <div class="contents1_bold">Developer</div>
+                <div class="contents1_bold">Technical Architect</div>
                 <div class="contents2">김민혁</div>
                 <div class="hidden_contents">
                   <ul>
@@ -117,19 +116,19 @@
       </ul>
       <div class="main_text0">
         <ul class="icons">
-          <li>
+          <li class="a1">
               <div class="icons_img">
-                  <img src="{{ url_for('static', filename='./_images/glow.png') }}">
+                  <img src="{{ url_for('static', filename='./_images/img_ocr2.png') }}">
               </div>
-              <div class="contents1_bold">Glow-tts</div>
-              <div class="contents3">Text to Melspectrogram</div>
+              <div class="contents1_bold">ApplePie OCR 광학 문자 판독</div>
+              <div class="contents3">사진 속에서 텍스트 정보를 찾고 의미를 판별 하는 기술입니다.</div>
           </li>
-          <li>
+          <li class="a2">
               <div class="icons_img">
-                  <img src="{{ url_for('static', filename='./_images/hifi.png') }}">
+                  <img src="{{ url_for('static', filename='./_images/TTS.png') }}">
               </div>
-              <div class="contents1_bold">Hifi-gan</div>
-              <div class="contents3">Melspectrogram to Voice</div>
+              <div class="contents1_bold">ApplePie Voice 음성 합성</div>
+              <div class="contents3">자연스러운 고품질의 목소리를 구현하고, 텍스트 정보를 읽어주는 기술입니다.</div>
           </li>
           <li>
             <div class="icons_img">
@@ -147,6 +146,17 @@
         </ul>
       </div>
     </div>
+    
+    <footer>
+      <div class="footer_logo">
+          <img src="{{ url_for('static', filename='./_images/logo.png')}}">
+      </div>
+      <div>
+          PM. 김현정 <br>
+          Members. 김현조, 김웅재, 김민혁 <br>
+          COPYRIGHT 2023. ApplePie. ALL RIGHT RESERVED.
+      </div>
+    </footer>
     <script src="{{ url_for('static', filename='./_js/about.js')}}"></script>
   </body>
 </html>
